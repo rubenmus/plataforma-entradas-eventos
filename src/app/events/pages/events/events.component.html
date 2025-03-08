@@ -1,0 +1,20 @@
+<app-header></app-header>
+  <mat-divider class="space"></mat-divider>
+<div class="events-container">
+  <div class="event-card" *ngFor="let event of events">
+    <a (click)="goSessions(event.id)">
+      <img [src]="event.image" alt="{{ event.title }}">
+    </a>
+    <div class="event-info">
+      <h2><a (click)="goSessions(event.id)">{{ event.title }}</a></h2>
+      <h3><a (click)="goSessions(event.id)">{{ event.subtitle }}</a></h3>
+      <p class="place"><strong>Lugar:</strong> {{ event.place }}</p>
+      <p class="date"><strong>Inicio:</strong> {{ event.startDate | date:'longDate' }}</p>
+      <p class="date"><strong>Fin:</strong> {{ event.endDate | date:'longDate' }}</p>
+      <p class="description" *ngIf="screenWidth > 768" [innerHTML]="event.description"></p>
+      <a class="details-btn" (click)="goSessions(event.id)">Ver detalles</a>
+    </div>
+  </div>
+</div>
+
+

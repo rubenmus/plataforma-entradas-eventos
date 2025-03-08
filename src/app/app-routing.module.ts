@@ -3,25 +3,21 @@ import { RouterModule, Routes } from '@angular/router';
 
 const routes: Routes = [
   {
-    path: 'heroes',
-    loadComponent: ()=> import('./heroes/heroes/pages/hero/hero.component').then( m=>m.HeroComponent)
+    path: 'events',
+    loadComponent: ()=> import('./events/pages/events/events.component').then( m=>m.EventsComponent)
   },
   {
-    path: 'new',
-    loadComponent: ()=> import('./heroes/heroes/pages/new-hero/new-hero.component').then( m=>m.NewHeroComponent)
-  },
-  {
-    path: 'heroes/:id/edit',
-    loadComponent: ()=> import('./heroes/heroes/pages/edit-hero/edit-hero.component').then( m=>m.EditHeroComponent)
+    path: 'sessions/:id',
+    loadComponent: ()=> import('./events/pages/sessions/sessions.component').then( m=>m.SessionsComponent)
   },
   {
     path: '',
-    redirectTo: 'heroes',
+    redirectTo: 'events',
     pathMatch: 'full'
   },
   {
     path: '**',
-    redirectTo: 'heroes',
+    redirectTo: 'events',
     pathMatch: 'full'
   }
 ];
