@@ -1,0 +1,15 @@
+<button mat-raised-button color="primary" (click)="returnHome()">Volver</button>
+<div class="container">
+  <form [formGroup]="heroForm" (ngSubmit)="newHero()">
+      <label for="name">Name:</label>
+      <input id="name" type="text" formControlName="name">
+      <label for="intelligence">Inteligencia:</label>
+      <input id="intelligence" type="number" formControlName="intelligence">
+      <label for="speed">Velocidad:</label>
+      <input id="speed" type="number" formControlName="speed">
+      <label for="power">Poder:</label>
+      <input id="power" type="number" formControlName="power">
+
+      <button type="submit" class="save-button">Guardar</button>
+    </form>
+</div>

@@ -1,0 +1,32 @@
+{
+  "heroes": [
+    {
+      "id": "1",
+      "name": "Batman",
+      "speed": 40,
+      "power": 40,
+      "intelligence": 100
+    },
+    {
+      "id": "2",
+      "name": "Flash",
+      "speed": 100,
+      "power": 60,
+      "intelligence": 60
+    },
+    {
+      "id": "3",
+      "name": "Superman",
+      "speed": 100,
+      "power": 100,
+      "intelligence": 50
+    },
+    {
+      "id": "22AE0GT",
+      "name": "spiderman",
+      "speed": 40,
+      "power": 60,
+      "intelligence": 80
+    }
+  ]
+}

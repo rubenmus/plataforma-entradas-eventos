@@ -1,0 +1,33 @@
+<div class="container">
+  <app-filter (filterHeroEvent)="filterHeroes($event)"></app-filter>
+  <mat-divider></mat-divider>
+  <button mat-raised-button color="primary" (click)="newHero()">Crear Héroe</button>
+
+  <div *ngIf="isLoading">
+    <mat-spinner></mat-spinner>
+  </div>
+
+  <div *ngIf="!isLoading" class="heroes-list mt-2">
+    <ul>
+      <li *ngFor="let hero of heroes" class="hero-item">
+        <div class="hero-info">
+          <label class="hero-label">Nombre: </label><p>{{hero.name | titlecase}}</p>
+        </div>
+        <div class="hero-info">
+          <label class="hero-label">Inteligencia: </label><p>{{hero.intelligence}}</p>
+        </div>
+        <div class="hero-info">
+          <label class="hero-label">Velocidad: </label><p>{{hero.speed}}</p>
+        </div>
+        <div class="hero-info">
+          <label class="hero-label">Poder: </label><p>{{hero.power}}</p>
+        </div>
+        <div class="hero-button">
+          <button mat-raised-button color="primary" (click)="editHero(hero.id)">Editar</button>
+          <button mat-raised-button color="warn" (click)="deleteHero(hero.id, hero.name)">Borrar</button>
+        </div>
+      </li>
+    </ul>
+  </div>
+</div>
+
