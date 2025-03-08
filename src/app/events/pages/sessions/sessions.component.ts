@@ -6,6 +6,8 @@ import { MaterialModule } from 'src/app/material/material.module';
 import { MatSnackBar } from '@angular/material/snack-bar';
 import { catchError, of } from 'rxjs';
 import { EventsService } from '../../services/events.service';
+import { EventSession } from '../../interfaces/eventsesion.interface';
+import { HeaderComponent } from '../../components/header/header.component';
 
 @Component({
   selector: 'app-edit-hero',
@@ -13,7 +15,8 @@ import { EventsService } from '../../services/events.service';
   imports: [
     CommonModule,
     ReactiveFormsModule,
-    MaterialModule
+    MaterialModule,
+    HeaderComponent
   ],
   templateUrl:'./sessions.component.html',
   styleUrls: ['./sessions.component.css'],
@@ -36,54 +39,31 @@ export class SessionsComponent implements OnInit {
   });
 
   ngOnInit(): void {
-    // this.activatedRoute.params.subscribe(params => {
-    //   this.heroesService.getHero(params['id'])
-    //   .pipe(
-    //     catchError(error => {
-    //       this.openSnackBar('Fallo en el servicio al intentar encontrar al heroe a editar')
-    //       return of(undefined)}),
-    //   )
-    //   .subscribe((hero: Hero | undefined) => {
-    //     if(!hero){
-    //       return
-    //     }
-    //     this.heroForm.setValue({
-    //       name: hero.name ?? '',
-    //       intelligence: hero.intelligence ?? 0,
-    //       speed: hero.speed ?? 0,
-    //       power: hero.power ?? 0,
-    //       id: hero.id
-    //     });
-    //   });
-    // });
+
+    this.activatedRoute.params.subscribe(params => {
+      const id = params['id'];
+
+      this.eventsService.getEventsSesions()
+      .pipe(
+        catchError(error => {
+          this.openSnackBar('Fallo en el servicio al intentar encontrar al heroe a editar')
+          return of(undefined)}),
+      )
+      .subscribe((data: EventSession[] | undefined) => {
+        if(!data){
+          return
+        }
+        const eventFound = data.find(event => event.event.id === id);
+        console.log(data);
+        console.log(eventFound);
+      });
+    });
   }
   returnHome(){
     this.router.navigateByUrl('/events');
     }
-  updateHero(){
-    // if(!this.heroForm.valid){
-    //   this.openSnackBar(`El heroe necesita un nombre`)
-    //   return;
-    // }
-    // const updatedHero: Hero = {
-    //   id: this.heroForm.value.id ?? '',
-    //   name: this.heroForm.value.name ?? '',
-    //   speed: this.heroForm.value.speed ?? 0,
-    //   power: this.heroForm.value.power ?? 0,
-    //   intelligence: this.heroForm.value.intelligence ?? 0
-    // };
-
-    // this.heroesService.updateHero(updatedHero)
-    // .pipe(
-    //   catchError(error => {
-    //     this.openSnackBar('Fallo en el servicio al intentar editar un heroe')
-    //     return of(false)}),
-    // )
-    // .subscribe(()=>{
-    //   this.router.navigate([`heroes`]);
-    //   this.openSnackBar('Héroe editado')
-    // })
-  }
+  //TODO borrar
+  updateHero(){}
   openSnackBar(m:string) {
     this._snackBar.open(m, '', {
       duration: 3000

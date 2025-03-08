@@ -8,11 +8,10 @@
     <div class="event-info">
       <h2><a (click)="goSessions(event.id)">{{ event.title }}</a></h2>
       <h3><a (click)="goSessions(event.id)">{{ event.subtitle }}</a></h3>
-      <p class="place"><strong>Lugar:</strong> {{ event.place }}</p>
-      <p class="date"><strong>Inicio:</strong> {{ event.startDate | date:'longDate' }}</p>
-      <p class="date"><strong>Fin:</strong> {{ event.endDate | date:'longDate' }}</p>
+      <p class="place">{{ event.place }}</p>
+      <p class="date"> {{ event.startDate | date:'longDate' }} - {{ event.endDate | date:'longDate' }}</p>
       <p class="description" *ngIf="screenWidth > 768" [innerHTML]="event.description"></p>
-      <a class="details-btn" (click)="goSessions(event.id)">Ver detalles</a>
+      <a class="details-btn" (click)="goSessions(event.id)">Comprar</a>
     </div>
   </div>
 </div>

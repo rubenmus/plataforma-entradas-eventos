@@ -1,6 +1,6 @@
 import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
-import { catchError, map, Observable, of } from 'rxjs';
+import { catchError, map, Observable, of, tap } from 'rxjs';
 import { Events } from '../interfaces/events.interface';
 import { EventSession } from '../interfaces/eventsesion.interface';
 
@@ -23,5 +23,4 @@ private baseUrlSessions: string = 'http://localhost:3000/eventsSesions';
   getEventsSesions(): Observable<EventSession[]>{
     return this.http.get<EventSession[]>(this.baseUrlSessions);
   }
-
 }

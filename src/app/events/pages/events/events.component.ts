@@ -41,7 +41,7 @@ export class EventsComponent implements OnInit{
   public events: Events[] =[];
 
   constructor(
-    private evetsService: EventsService,
+    private eventsService: EventsService,
     private activatedRoute: ActivatedRoute,
     private router: Router,
     private _snackBar: MatSnackBar,
@@ -50,7 +50,7 @@ export class EventsComponent implements OnInit{
   ){}
 
   ngOnInit(): void {
-    this.evetsService.getEvents()
+    this.eventsService.getEvents()
     .pipe(
       catchError(error => {
         this.openSnackBar('Fallo en el servicio en la carga de los eventos')
@@ -62,26 +62,11 @@ export class EventsComponent implements OnInit{
       }
       this.events = data.sort((a, b) => parseInt(a.endDate) - parseInt(b.endDate));
     });
-
-    //TODO borrar
-    this.evetsService.getEventsSesions()
-    .pipe(
-      catchError(error => {
-        this.openSnackBar('Fallo en el servicio en la carga de los eventos')
-        return of(undefined)}),
-    )
-    .subscribe(data=>{
-      if(!data){
-        return;
-      }
-      console.log(data);
-    });
   }
 
   goSessions(id: string){
     this.router.navigate([`sessions/${id}`]);
   }
-
 
   openSnackBar(m:string) {
     this._snackBar.open(m, '', {
