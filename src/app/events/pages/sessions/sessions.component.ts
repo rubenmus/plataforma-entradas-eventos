@@ -10,7 +10,7 @@ import { EventSession } from '../../interfaces/eventsesion.interface';
 import { HeaderComponent } from '../../components/header/header.component';
 
 @Component({
-  selector: 'app-edit-hero',
+  selector: 'app-edit-sessions',
   standalone: true,
   imports: [
     CommonModule,
@@ -46,7 +46,7 @@ export class SessionsComponent implements OnInit {
       this.eventsService.getEventsSesions()
       .pipe(
         catchError(error => {
-          this.openSnackBar('Fallo en el servicio al intentar encontrar al heroe a editar')
+          this.openSnackBar('Fallo en el servicio al intentar encontrar las sesiones')
           return of(undefined)}),
       )
       .subscribe((data: EventSession[] | undefined) => {
