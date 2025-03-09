@@ -1,17 +1,25 @@
 <app-header></app-header>
   <mat-divider class="space"></mat-divider>
-<button mat-raised-button color="primary" (click)="returnHome()">Volver</button>
+<button mat-raised-button color="primary" class="btn" (click)="returnHome()">Volver</button>
 <div class="container">
-  <form [formGroup]="heroForm" (ngSubmit)="updateHero()">
-      <label for="name">Name:</label>
-      <input id="name" type="text" formControlName="name">
-      <label for="intelligence">Inteligencia:</label>
-      <input id="intelligence" type="number" formControlName="intelligence">
-      <label for="speed">Velocidad:</label>
-      <input id="speed" type="number" formControlName="speed">
-      <label for="power">Poder:</label>
-      <input id="power" type="number" formControlName="power">
-
-      <button type="submit" class="save-button">Guardar</button>
-    </form>
+  <div class="left">
+      <div *ngFor="let session of events?.sessions" class="session">
+          <span>Fecha: {{ session.date | date:'longDate' }}, Disponibilidad: {{ session.availability }}</span>
+          <div class="counter">
+            <button (click)="decrement(session)" [disabled]="!selectedSessions[session.date] || selectedSessions[session.date].count === 0">-</button>
+            <span>{{ selectedSessions[session.date]?.count || 0 }}</span>
+            <button (click)="increment(session)" [disabled]="selectedSessions[session.date]?.count >= session.availability">+</button>
+        </div>
+      </div>
+  </div>
+  <div class="right">
+    <h2>{{events?.event?.title}}</h2>
+    <div *ngFor="let session of selectedSessionsArray" class="selected-session">
+        <span>{{ session.date | date:'longDate' }}</span>
+        <span class="trash" (click)="removeSession(session)">
+          <strong>x{{ session.count }}</strong>
+          <img src="/assets/img/trash.png" alt="Eliminar" />
+        </span>
+    </div>
+  </div>
 </div>

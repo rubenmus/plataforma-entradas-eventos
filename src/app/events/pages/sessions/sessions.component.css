@@ -3,41 +3,65 @@
   padding: 20px;
 }
 
-.container {
-  max-width: 400px;
-  margin: 0 auto;
+.btn{
+  margin-bottom: 20px;
   padding: 20px;
-  border: 1px solid #ccc;
-  border-radius: 10px;
-  background-color: #f9f9f9;
 }
-
-form {
+.container {
   display: flex;
-  flex-direction: column;
+  flex-wrap: wrap;
+  gap: 20px;
 }
 
-label {
-  margin-bottom: 5px;
+.left, .right {
+  flex: 1;
+  min-width: 300px;
 }
 
-input {
-  padding: 8px;
-  margin-bottom: 10px;
-  border: 1px solid #ccc;
-  border-radius: 5px;
+.left {
+  border: 2px solid black;
+  padding: 15px;
+  border-radius: 10px;
+  box-shadow: 3px 3px 10px rgba(0, 0, 0, 0.2);
 }
 
-button.save-button {
-  padding: 10px 20px;
-  background-color: #1c1fd6;
-  color: white;
-  border: none;
-  border-radius: 5px;
+.session {
+  padding: 10px;
+  border-bottom: 1px solid #ccc;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.counter {
+  display: flex;
+  align-items: center;
+}
+
+.counter button {
+  padding: 5px;
+  margin: 0 5px;
   cursor: pointer;
-  transition: background-color 0.3s;
 }
 
-button.save-button:hover {
-  background-color: #022c5a;
+.right h2 {
+  margin-bottom: 10px;
+}
+
+.event {
+  margin-bottom: 15px;
+}
+
+.selected-session {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 5px 0;
+  border-bottom: 1px solid #ddd;
+}
+
+.trash img {
+  width: 24px;
+  height: 24px;
+  cursor: pointer;
 }

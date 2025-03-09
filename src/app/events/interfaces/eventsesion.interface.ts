@@ -7,7 +7,7 @@ export interface Event {
 
 export interface Session {
   date: string;
-  availability: string;
+  availability: number;
 }
 
 export interface EventSession {
