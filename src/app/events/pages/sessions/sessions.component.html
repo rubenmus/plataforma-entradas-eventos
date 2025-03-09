@@ -17,7 +17,7 @@
     <div *ngFor="let session of selectedSessionsArray" class="selected-session">
         <span>{{ session.date | date:'longDate' }}</span>
         <span class="trash" (click)="removeSession(session)">
-          <strong>x{{ session.count }}</strong>
+          <strong>x{{ session.count }} </strong>
           <img src="/assets/img/trash.png" alt="Eliminar" />
         </span>
     </div>
