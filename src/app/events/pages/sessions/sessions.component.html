@@ -1,7 +1,7 @@
 <app-header></app-header>
   <mat-divider class="space"></mat-divider>
 <button mat-raised-button color="primary" class="btn" (click)="returnHome()">Volver</button>
-<div class="container">
+<div *ngIf="events" class="container">
   <div class="left">
       <div *ngFor="let session of events?.sessions" class="session">
           <span>Fecha: {{ session.date | date:'longDate' }}, Disponibilidad: {{ session.availability }}</span>
@@ -13,7 +13,7 @@
       </div>
   </div>
   <div class="right">
-    <h2>{{events?.event?.title}}</h2>
+    <h2>{{events.event.title}}</h2>
     <div *ngFor="let session of selectedSessionsArray" class="selected-session">
         <span>{{ session.date | date:'longDate' }}</span>
         <span class="trash" (click)="removeSession(session)">
@@ -22,4 +22,8 @@
         </span>
     </div>
   </div>
+</div>
+
+<div *ngIf="!events" class="container">
+<span><strong> No hay sesiones disponibles</strong></span>
 </div>

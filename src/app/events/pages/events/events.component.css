@@ -1,5 +1,5 @@
 .space {
-  margin-top: 60px;
+  margin-top: 20px;
   padding: 20px;
 }
 .events-container {
@@ -62,7 +62,7 @@ h2 a:hover, h3 a:hover {
   width: 100%;
   margin-top: auto;
   padding: 12px 0;
-  background-color: #007bff;
+  background-color: #459dfc;
   color: white;
   text-decoration: none;
   border-radius: 8px;
