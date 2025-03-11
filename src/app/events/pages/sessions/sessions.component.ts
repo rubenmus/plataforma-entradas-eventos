@@ -87,7 +87,7 @@ export class SessionsComponent implements OnInit {
       return;
     }
     delete this.selectedSessions[session.date];
-    this.selectedSessionsArray = this.selectedSessionsArray.filter(session => session.date !== session.date);
+    this.selectedSessionsArray = this.selectedSessionsArray.filter(s => s.date !== session.date)
   }
   returnHome(){
     this.router.navigateByUrl('/events');

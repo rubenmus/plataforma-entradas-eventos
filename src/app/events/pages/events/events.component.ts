@@ -9,7 +9,6 @@ import {
   MatSnackBar
 } from '@angular/material/snack-bar';
 import { MatDialog } from '@angular/material/dialog';
-import { ModalComponent } from '../../components/modal/modal.component';
 import { HeaderComponent } from '../../components/header/header.component';
 import { EventsService } from '../../services/events.service';
 
@@ -20,7 +19,6 @@ import { EventsService } from '../../services/events.service';
   imports: [
     CommonModule,
     MaterialModule,
-    ModalComponent,
     HeaderComponent,
     RouterModule
     ],
